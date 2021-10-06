@@ -26,13 +26,11 @@ class Client
             $response = $this->client->request($clientRequest->getMethod(), $clientRequest->getUrl());
             $weather = $response->toArray();
 
-            $response = new FetchClientResponse(
+            return new FetchClientResponse(
                 $city->getCityName(),
                 $weather['forecast']['forecastday'][0]['day']['condition']['text'],
                 $weather['forecast']['forecastday'][1]['day']['condition']['text']
             );
-
-            return $response;
         } catch (\Throwable $e) {
             throw new FetchClientException('Weather client exception', $e->getTrace());
         }

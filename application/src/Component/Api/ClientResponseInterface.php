@@ -6,5 +6,4 @@ namespace App\Component\Api;
 
 interface ClientResponseInterface
 {
-
 }
