@@ -1,0 +1,29 @@
+name: CI
+
+on:
+    push:
+
+jobs:
+    php-cs-fixer:
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        strategy:
+            matrix:
+                php:
+                    - '7.4'
+            fail-fast: false
+        env:
+            PHP_CS_FIXER_FUTURE_MODE: '1'
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+                  extensions: intl, bcmath, curl, openssl, mbstring
+                  ini-values: memory_limit=-1
+                  tools: flex, pecl, composer, flex, php-cs-fixer
+                  coverage: none
+            - name: Run PHP-CS-Fixer fix
+              run: php-cs-fixer fix --dry-run --diff --ansi
