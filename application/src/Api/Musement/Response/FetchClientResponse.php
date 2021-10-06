@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Component\Api\Musement\Response;
+namespace App\Api\Musement\Response;
 
-use App\Component\Api\ClientResponseInterface;
-use App\Component\Api\Model\City;
+use App\Api\ClientResponseInterface;
+use App\Api\Model\City;
 
 class FetchClientResponse implements ClientResponseInterface
 {
-    private $data;
+    private array $data = [];
 
     public function addItem(City $item): self
     {

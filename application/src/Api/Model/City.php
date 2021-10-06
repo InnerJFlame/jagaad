@@ -2,26 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\Component\Api\Model;
+namespace App\Api\Model;
 
 class City
 {
-    private $uuid;
-    private $cityName;
-    private $latitude;
-    private $longitude;
+    private string $cityName;
+    private float $latitude;
+    private float $longitude;
 
-    public function __construct(string $uuid, string $cityName, float $latitude, float $longitude)
+    public function __construct(string $cityName, float $latitude, float $longitude)
     {
-        $this->uuid = $uuid;
         $this->cityName = $cityName;
         $this->latitude = $latitude;
         $this->longitude = $longitude;
-    }
-
-    public function getUuid(): string
-    {
-        return $this->uuid;
     }
 
     public function getCityName(): string

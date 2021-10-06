@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Component\Api\Musement\Request;
+namespace App\Api\Musement\Request;
 
-use App\Component\Api\ClientRequestInterface;
+use App\Api\ClientRequestInterface;
 
 class FetchClientRequest implements ClientRequestInterface
 {

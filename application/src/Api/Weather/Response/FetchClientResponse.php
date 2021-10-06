@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Component\Api\Weather\Request;
+namespace App\Api\Weather\Response;
 
-use App\Component\Api\ClientResponseInterface;
+use App\Api\ClientResponseInterface;
 
 class FetchClientResponse implements ClientResponseInterface
 {
-    private $cityName;
-    private $weatherToday;
-    private $weatherTomorrow;
+    private string $cityName;
+    private string $weatherToday;
+    private string $weatherTomorrow;
 
     public function __construct(string $cityName, string $weatherToday, string $weatherTomorrow)
     {

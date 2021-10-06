@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Component\Api\Weather\Exception;
+namespace App\Api\Weather\Exception;
 
 class FetchClientException extends \Exception
 {

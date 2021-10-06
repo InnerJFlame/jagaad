@@ -4,21 +4,22 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use App\Component\Api\Musement\Client as MusementClient;
-use App\Component\Api\Weather\Client as WeatherClient;
-use App\Component\Api\Weather\Request\FetchFormatter;
+use App\Api\Musement\Client as MusementClient;
+use App\Api\Weather\Client as WeatherClient;
+use App\Api\Weather\Formatter\FetchFormatter;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Throwable;
 
 class WeatherProcessCommand extends Command
 {
     protected static $defaultName = 'application:weather:process';
 
-    private $logger;
-    private $musementClient;
-    private $weatherClient;
+    private LoggerInterface $logger;
+    private MusementClient $musementClient;
+    private WeatherClient $weatherClient;
 
     public function __construct(
         LoggerInterface $logger,
@@ -43,7 +44,7 @@ class WeatherProcessCommand extends Command
             }
 
             return Command::SUCCESS;
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $this->logger->critical($e->getMessage(), $e->getTrace());
         }
 

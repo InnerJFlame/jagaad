@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Component\Api\Weather\Request;
+namespace App\Api\Weather\Formatter;
+
+use App\Api\Weather\Response\FetchClientResponse;
 
 class FetchFormatter
 {
