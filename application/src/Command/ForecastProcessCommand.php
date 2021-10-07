@@ -13,9 +13,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Throwable;
 
-class WeatherProcessCommand extends Command
+class ForecastProcessCommand extends Command
 {
-    protected static $defaultName = 'application:weather:process';
+    protected static $defaultName = 'application:forecast:process';
 
     private LoggerInterface $logger;
     private MusementClient $musementClient;
