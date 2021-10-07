@@ -11,6 +11,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
  * @internal
+ * @coversDefaultClass Client
  */
 final class WeatherClientTest extends TestCase
 {
