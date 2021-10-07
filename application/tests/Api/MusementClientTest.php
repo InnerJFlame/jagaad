@@ -9,6 +9,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
  * @internal
+ * @coversDefaultClass Client
  */
 final class MusementClientTest extends TestCase
 {

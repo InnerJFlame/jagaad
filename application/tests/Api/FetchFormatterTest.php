@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
+ * @coversDefaultClass FetchFormatter
  */
 final class FetchFormatterTest extends TestCase
 {

@@ -16,6 +16,7 @@ final class WeatherClientTest extends TestCase
 {
     /**
      * @covers Client::fetch
+     * @coversDefaultClass Client
      */
     public function testFetch(): void
     {
