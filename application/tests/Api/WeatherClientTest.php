@@ -9,20 +9,24 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-class WeatherClientTest extends TestCase
+/**
+ * @internal
+ */
+final class WeatherClientTest extends TestCase
 {
-    public function testFetch()
+    /**
+     * @covers Client::fetch
+     */
+    public function testFetch(): void
     {
         $mockClient = $this->createMock(HttpClientInterface::class);
-
         $mockParams = $this->createMock(ContainerBagInterface::class);
         $mockParams->method('get')->willReturn('api_key');
-
         $weatherClient = new Client($mockClient, $mockParams);
 
         $fetch = $weatherClient->fetch(new City('Amsterdam', 52.374, 4.9));
 
-        $this->assertInstanceOf(FetchClientResponse::class, $fetch);
-        $this->assertEquals('Amsterdam', $fetch->getCityName());
+        static::assertInstanceOf(FetchClientResponse::class, $fetch);
+        static::assertSame('Amsterdam', $fetch->getCityName());
     }
 }
