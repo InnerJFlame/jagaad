@@ -1,6 +1,6 @@
-# Development
+# Developer: Serhii Ishchuk
 
-## Developer: Serhii Ishchuk
+# Development
 
 ## Step 1. Build Docker
 
@@ -22,6 +22,8 @@
 
 `php bin/console application:forecast:process` - execute console command
 
+`php bin/phpunit` - unit tests
+
 # API design (no code required)
 I propose to create 2 tables for example: City|Forecast
 ![alt text](api_design/entities.jpg)
@@ -29,4 +31,7 @@ Post request:
 ![alt text](api_design/post.jpg)
 Get request:
 ![alt text](api_design/get.jpg)
-Read and write requests can return and accept an array of forecasts and dates for forecasts
+
+Read and write requests can return and accept an array of forecasts and dates for forecasts.
+
+Code check was added to github ci.
